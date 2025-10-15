@@ -5,7 +5,7 @@ A professional web application for converting hex colors to their nearest Panton
 ## Features
 
 - **Accurate Color Matching**: Uses Delta E 2000 (CIEDE2000) - the most perceptually accurate color difference formula
-- **1,341 Pantone Colors**: Complete Pantone Solid Coated color library
+- **3,219 Pantone Colors**: Comprehensive Pantone Solid Coated 2024 color library with LAB values
 - **LAB Color Space**: Conversions performed in LAB color space for perceptually uniform results
 - **Recent Colors History**: Automatically saves your recent color searches
 - **Copy to Clipboard**: Quick copy buttons for hex values
@@ -97,9 +97,18 @@ Then navigate to `http://localhost:8000` in your browser.
 
 ### Data Source
 
-Pantone color data sourced from [brettapeters/pantones](https://github.com/brettapeters/pantones).
+Pantone color data (3,219 colors with LAB values) sourced from [aj90909/unofficial-pantone-solid-coated-2024-v5](https://github.com/aj90909/unofficial-pantone-solid-coated-2024-v5).
 
-**Important**: These color values are derived from RGB swatches and may not be 100% accurate to official Pantone values. Always verify with physical Pantone swatches for production work.
+**Important Color Matching Notes**:
+- This application uses **LAB color space with Delta E 2000** for mathematically accurate perceptual color matching
+- LAB values are from official ACB source data
+- RGB conversions use D65 illuminant and sRGB color space
+- Results may differ slightly from Adobe Illustrator due to:
+  - Different color space conversions (Adobe RGB vs sRGB)
+  - Display calibration differences
+  - Internal Adobe color engine optimizations
+- The Delta E 2000 algorithm finds the **perceptually closest** color, which is the scientifically correct approach
+- Always verify with physical Pantone swatches for production work
 
 ## Browser Support
 
