@@ -129,9 +129,9 @@ const App = (function() {
             return;
         }
 
-        // Calculate distances and sort
+        // Calculate distances and sort (using CIE76 for compatibility with Adobe)
         const matches = pantoneColors.map(pantone => {
-            const distance = ColorAlgorithms.deltaE2000(inputLab, pantone.lab);
+            const distance = ColorAlgorithms.deltaE76(inputLab, pantone.lab);
             return {
                 ...pantone,
                 deltaE: distance,

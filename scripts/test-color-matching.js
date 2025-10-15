@@ -20,7 +20,7 @@ const test1Hex = '#5F3EFF';
 const test1Lab = ColorAlgorithms.hexToLab(test1Hex);
 
 const test1Matches = data.colors.map(pantone => {
-    const distance = ColorAlgorithms.deltaE2000(test1Lab, pantone.lab);
+    const distance = ColorAlgorithms.deltaE76(test1Lab, pantone.lab);
     return {
         ...pantone,
         deltaE: distance
@@ -42,7 +42,7 @@ const test2Hex = '#E300FF';
 const test2Lab = ColorAlgorithms.hexToLab(test2Hex);
 
 const test2Matches = data.colors.map(pantone => {
-    const distance = ColorAlgorithms.deltaE2000(test2Lab, pantone.lab);
+    const distance = ColorAlgorithms.deltaE76(test2Lab, pantone.lab);
     return {
         ...pantone,
         deltaE: distance

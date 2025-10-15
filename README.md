@@ -1,12 +1,12 @@
 # Hex to Pantone Converter
 
-A professional web application for converting hex colors to their nearest Pantone Solid Coated matches using the Delta E 2000 color difference algorithm.
+A professional web application for converting hex colors to their nearest Pantone Solid Coated matches using CIE76 (Delta E 1976) color difference in LAB space.
 
 ## Features
 
-- **Accurate Color Matching**: Uses Delta E 2000 (CIEDE2000) - the most perceptually accurate color difference formula
+- **Color Matching**: Uses CIE76 (Delta E 1976) algorithm for LAB color space matching
 - **3,219 Pantone Colors**: Comprehensive Pantone Solid Coated 2024 color library with LAB values
-- **LAB Color Space**: Conversions performed in LAB color space for perceptually uniform results
+- **LAB Color Space**: Conversions performed in LAB color space for consistent color comparison
 - **Recent Colors History**: Automatically saves your recent color searches
 - **Copy to Clipboard**: Quick copy buttons for hex values
 - **Responsive Design**: Works on desktop, tablet, and mobile devices
@@ -100,14 +100,15 @@ Then navigate to `http://localhost:8000` in your browser.
 Pantone color data (3,219 colors with LAB values) sourced from [aj90909/unofficial-pantone-solid-coated-2024-v5](https://github.com/aj90909/unofficial-pantone-solid-coated-2024-v5).
 
 **Important Color Matching Notes**:
-- This application uses **LAB color space with Delta E 2000** for mathematically accurate perceptual color matching
-- LAB values are from official ACB source data
+- This application uses **CIE76 (Delta E 1976)** algorithm in LAB color space for color matching
+- LAB values are from 2024 Pantone data (unofficial source with ACB-derived values)
 - RGB conversions use D65 illuminant and sRGB color space
-- Results may differ slightly from Adobe Illustrator due to:
+- **Results may differ from Adobe Illustrator** due to:
+  - Different LAB values (Adobe uses proprietary Pantone data)
   - Different color space conversions (Adobe RGB vs sRGB)
   - Display calibration differences
-  - Internal Adobe color engine optimizations
-- The Delta E 2000 algorithm finds the **perceptually closest** color, which is the scientifically correct approach
+  - Adobe may use proprietary matching algorithms
+- This tool provides **mathematical color distance** - not a guarantee of perfect Adobe Illustrator match
 - Always verify with physical Pantone swatches for production work
 
 ## Browser Support
