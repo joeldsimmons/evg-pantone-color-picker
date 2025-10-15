@@ -5,7 +5,7 @@ A professional web application for converting hex colors to their nearest Panton
 ## Features
 
 - **Color Matching**: Uses CIE76 (Delta E 1976) algorithm for LAB color space matching
-- **3,219 Pantone Colors**: Comprehensive Pantone Solid Coated 2024 color library with LAB values
+- **2,200 Pantone Colors**: Official Adobe Pantone Solid Coated color library with LAB values
 - **LAB Color Space**: Conversions performed in LAB color space for consistent color comparison
 - **Recent Colors History**: Automatically saves your recent color searches
 - **Copy to Clipboard**: Quick copy buttons for hex values
@@ -97,18 +97,18 @@ Then navigate to `http://localhost:8000` in your browser.
 
 ### Data Source
 
-Pantone color data (3,219 colors with LAB values) sourced from [aj90909/unofficial-pantone-solid-coated-2024-v5](https://github.com/aj90909/unofficial-pantone-solid-coated-2024-v5).
+Pantone color data (2,200 colors with LAB values) extracted from **Official Adobe Swatch Exchange (ASE) file** from licensed Adobe Illustrator.
 
 **Important Color Matching Notes**:
 - This application uses **CIE76 (Delta E 1976)** algorithm in LAB color space for color matching
-- LAB values are from 2024 Pantone data (unofficial source with ACB-derived values)
+- LAB values are **official Adobe Pantone values** extracted from licensed software
 - RGB conversions use D65 illuminant and sRGB color space
 - **Results may differ from Adobe Illustrator** due to:
-  - Different LAB values (Adobe uses proprietary Pantone data)
-  - Different color space conversions (Adobe RGB vs sRGB)
+  - Adobe uses proprietary color matching algorithms beyond simple CIE76
+  - Different RGB→LAB conversion in the browser vs Adobe's engine
   - Display calibration differences
-  - Adobe may use proprietary matching algorithms
-- This tool provides **mathematical color distance** - not a guarantee of perfect Adobe Illustrator match
+- This tool provides **mathematical color distance using official Adobe LAB values**
+- For exact Adobe Illustrator matching, use Adobe's Color Picker within Illustrator
 - Always verify with physical Pantone swatches for production work
 
 ## Browser Support
@@ -146,9 +146,9 @@ The `scripts/` folder contains experimental ACB file parsers if you want to extr
 
 ## Performance
 
-- **Initial Load**: ~330KB JSON database
-- **Color Matching**: < 100ms for 1,341 colors
-- **Memory Usage**: ~2MB total
+- **Initial Load**: ~530KB JSON database (2,200 official Adobe Pantone colors)
+- **Color Matching**: < 100ms for 2,200 colors
+- **Memory Usage**: ~3MB total
 
 ## Limitations
 
@@ -167,8 +167,9 @@ This is an unofficial tool for internal professional use. Pantone® is a registe
 
 ## Credits
 
-- **Color Algorithm**: CIE Delta E 2000 (CIEDE2000)
-- **Pantone Data**: [brettapeters/pantones](https://github.com/brettapeters/pantones)
+- **Color Algorithm**: CIE76 (Delta E 1976) in LAB color space
+- **Pantone Data**: Official Adobe Swatch Exchange (ASE) file from licensed Adobe Illustrator
+- **ASE Parser**: Custom parser for Adobe Swatch Exchange format
 - **Built with**: Vanilla JavaScript (no frameworks)
 
 ## Support
