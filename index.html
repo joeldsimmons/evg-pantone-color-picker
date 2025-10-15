@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hex to Pantone Converter | Professional Color Matching</title>
+    <meta name="description" content="Convert hex colors to their nearest Pantone Solid Coated matches using Delta E 2000 color difference algorithm">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🎨 Hex to Pantone Converter</h1>
+            <p class="subtitle">Find the closest Pantone Solid Coated match for any hex color</p>
+            <p class="stats" id="stats">Loading...</p>
+        </header>
+
+        <!-- Input Section -->
+        <section class="input-section">
+            <div class="input-group">
+                <label for="hexInput">Enter Hex Color</label>
+                <div class="input-row">
+                    <input
+                        type="text"
+                        id="hexInput"
+                        placeholder="#FF5733"
+                        autocomplete="off"
+                        spellcheck="false"
+                        maxlength="7"
+                    />
+                    <input
+                        type="color"
+                        id="colorPicker"
+                        value="#000000"
+                        title="Pick a color"
+                    />
+                </div>
+                <p class="input-hint">Supports formats: #RGB, #RRGGBB</p>
+            </div>
+
+            <div class="button-group">
+                <button id="matchButton" class="btn btn-primary">
+                    Find Pantone Matches
+                </button>
+                <button id="clearButton" class="btn btn-secondary">
+                    Clear
+                </button>
+            </div>
+
+            <!-- Recent Colors -->
+            <div id="recentColorsContainer" class="recent-colors-container" style="display: none;"></div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="resultsContainer" class="results-section">
+            <div class="welcome-message">
+                <p>👆 Enter a hex color above to find its closest Pantone matches</p>
+                <div class="features">
+                    <div class="feature">
+                        <span class="icon">🎯</span>
+                        <span>Delta E 2000 accuracy</span>
+                    </div>
+                    <div class="feature">
+                        <span class="icon">📊</span>
+                        <span>LAB color space matching</span>
+                    </div>
+                    <div class="feature">
+                        <span class="icon">🎨</span>
+                        <span>1,341 Pantone colors</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>
+                Built with Delta E 2000 color matching algorithm
+                | <a href="https://github.com" target="_blank">View on GitHub</a>
+            </p>
+            <p class="disclaimer">
+                For professional use only. Color accuracy may vary based on display calibration.
+                Always verify with physical Pantone swatches for production work.
+            </p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/color-algorithms.js"></script>
+    <script src="js/pantone-database.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

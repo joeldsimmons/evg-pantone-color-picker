@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Program Files/Adobe/Adobe Illustrator (Beta)/Presets/en_US/Swatches/**)",
+      "WebSearch",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(node scripts/parse-acb-v2.js:*)",
+      "Bash(node:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(curl:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
