@@ -22,6 +22,11 @@ const App = (function() {
             const data = await PantoneDatabase.load();
             pantoneColors = data.colors;
 
+            // Initialize Pantone Picker
+            if (window.PantonePicker) {
+                PantonePicker.init(pantoneColors);
+            }
+
             // Load recent colors from localStorage
             loadRecentColors();
 
@@ -47,6 +52,7 @@ const App = (function() {
         const colorPicker = document.getElementById('colorPicker');
         const matchButton = document.getElementById('matchButton');
         const clearButton = document.getElementById('clearButton');
+        const openPickerButton = document.getElementById('openPickerButton');
 
         // Hex input events
         hexInput.addEventListener('input', handleHexInput);
@@ -62,6 +68,20 @@ const App = (function() {
         // Button events
         matchButton.addEventListener('click', findMatches);
         clearButton.addEventListener('click', clearInput);
+
+        // Open Pantone Picker
+        if (openPickerButton && window.PantonePicker) {
+            console.log('✓ Attaching Pantone Picker button listener');
+            openPickerButton.addEventListener('click', () => {
+                console.log('🎨 Opening Pantone Picker...');
+                PantonePicker.open();
+            });
+        } else {
+            console.error('❌ Pantone Picker button or PantonePicker not found', {
+                button: !!openPickerButton,
+                picker: !!window.PantonePicker
+            });
+        }
 
         // Paste detection
         hexInput.addEventListener('paste', () => {

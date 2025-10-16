@@ -3,23 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hex to Pantone Converter | Professional Color Matching</title>
-    <meta name="description" content="Convert hex colors to their nearest Pantone Solid Coated matches using CIE76 color difference algorithm in LAB space">
+    <title>Pantone Color Picker | Professional Color Selection</title>
+    <meta name="description" content="Browse and select from 3,219 official Pantone Solid Coated colors. Professional color picker with search and matching.">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/picker.css">
 </head>
 <body>
     <div class="container">
         <!-- Header -->
         <header class="header">
-            <h1>🎨 Hex to Pantone Converter</h1>
-            <p class="subtitle">Find the closest Pantone Solid Coated match for any hex color</p>
+            <h1>🎨 Pantone Color Picker</h1>
+            <p class="subtitle">Browse 3,219 Pantone Solid Coated colors or convert any hex color</p>
             <p class="stats" id="stats">Loading...</p>
         </header>
 
         <!-- Input Section -->
         <section class="input-section">
+            <!-- Pantone Picker Button -->
+            <div class="button-group" style="margin-bottom: 20px;">
+                <button id="openPickerButton" class="btn btn-primary" style="font-size: 1.1rem; padding: 16px 24px;">
+                    🎨 Browse Pantone Color Library
+                </button>
+            </div>
+
+            <div style="text-align: center; margin: 20px 0; color: #64748b; font-weight: 600;">
+                — OR —
+            </div>
+
             <div class="input-group">
-                <label for="hexInput">Enter Hex Color</label>
+                <label for="hexInput">Convert Hex Color to Pantone</label>
                 <div class="input-row">
                     <input
                         type="text"
@@ -55,7 +67,7 @@
         <!-- Results Section -->
         <section id="resultsContainer" class="results-section">
             <div class="welcome-message">
-                <p>👆 Enter a hex color above to find its closest Pantone matches</p>
+                <p>👆 Browse the Pantone library or convert a hex color to find matches</p>
                 <div class="features">
                     <div class="feature">
                         <span class="icon">🎯</span>
@@ -63,11 +75,11 @@
                     </div>
                     <div class="feature">
                         <span class="icon">📊</span>
-                        <span>LAB color space matching</span>
+                        <span>Virtual scrolling</span>
                     </div>
                     <div class="feature">
                         <span class="icon">🎨</span>
-                        <span>2,200 Pantone colors</span>
+                        <span>3,219 Pantone colors</span>
                     </div>
                 </div>
             </div>
@@ -89,6 +101,7 @@
     <!-- Scripts -->
     <script src="js/color-algorithms.js"></script>
     <script src="js/pantone-database.js"></script>
+    <script src="js/pantone-picker.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,356 @@
+/* ===========================
+   Pantone Color Picker Styles
+   =========================== */
+
+/* ===== Modal Overlay ===== */
+.picker-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.picker-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+}
+
+/* ===== Modal Container ===== */
+.picker-container {
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease-out;
+    z-index: 10000;
+}
+
+/* ===== Header ===== */
+.picker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.picker-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.picker-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #64748b;
+    transition: all 0.2s;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.picker-close:hover {
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+/* ===== Search Bar ===== */
+.picker-search-bar {
+    padding: 20px 30px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.picker-search-input {
+    flex: 1;
+    padding: 12px 16px;
+    font-size: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.picker-search-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.picker-color-count {
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* ===== Body / Grid Area ===== */
+.picker-body {
+    flex: 1;
+    overflow: hidden;
+    padding: 20px 30px;
+}
+
+.picker-grid-container {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.picker-grid {
+    position: relative;
+    width: 100%;
+}
+
+/* ===== Color Swatches ===== */
+.picker-swatch {
+    width: 70px;
+    height: 70px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.picker-swatch:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border-color: #667eea;
+}
+
+.picker-swatch.selected {
+    border: 3px solid #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+    transform: scale(1.05);
+}
+
+.swatch-code {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+/* ===== Footer / Selected Display ===== */
+.picker-footer {
+    display: none;
+    padding: 20px 30px;
+    border-top: 2px solid #e2e8f0;
+    background: #f8fafc;
+    gap: 20px;
+    align-items: center;
+}
+
+.picker-selected-preview {
+    flex: 1;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.selected-swatch {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.selected-info h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+    color: #1e293b;
+}
+
+.selected-values {
+    display: flex;
+    gap: 15px;
+    font-size: 0.9rem;
+    color: #64748b;
+    font-family: 'Courier New', monospace;
+}
+
+/* ===== Action Buttons ===== */
+.picker-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-copy,
+.btn-select {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.btn-copy {
+    background: white;
+    color: #667eea;
+    border: 2px solid #667eea;
+}
+
+.btn-copy:hover {
+    background: #667eea;
+    color: white;
+}
+
+.btn-select {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-select:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Scrollbar Styling ===== */
+.picker-grid-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.picker-grid-container::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 5px;
+}
+
+.picker-grid-container::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 5px;
+}
+
+.picker-grid-container::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    .picker-container {
+        width: 95%;
+        max-height: 95vh;
+    }
+
+    .picker-header {
+        padding: 15px 20px;
+    }
+
+    .picker-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .picker-search-bar {
+        padding: 15px 20px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .picker-body {
+        padding: 15px 20px;
+    }
+
+    .picker-swatch {
+        width: 60px;
+        height: 60px;
+    }
+
+    .swatch-code {
+        font-size: 0.55rem;
+    }
+
+    .picker-footer {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px 20px;
+    }
+
+    .picker-actions {
+        flex-direction: column;
+    }
+
+    .btn-copy,
+    .btn-select {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .picker-container {
+        width: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+    }
+
+    .picker-swatch {
+        width: 50px;
+        height: 50px;
+    }
+
+    .swatch-code {
+        font-size: 0.5rem;
+    }
+}
